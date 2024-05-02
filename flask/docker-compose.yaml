@@ -1,0 +1,11 @@
+version: '3'
+services:
+  flask_app:
+    build:
+      context: flask_app
+      dockerfile: Dockerfile
+    volumes:
+      - ./flask_app/app:/root/app
+    tty: true
+    ports:
+      - 5901:5901
