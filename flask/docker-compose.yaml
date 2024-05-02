@@ -1,11 +1,14 @@
 version: '3'
 services:
-  flask_app:
+  pythontest:
     build:
-      context: flask_app
-      dockerfile: Dockerfile
+      context: "./app"
+      dockerfile: "Dockerfile"
+      args:
+        - UID=1000
+        - GID=1000
+        - USERNAME=user
+        - GROUPNAME=user
     volumes:
-      - ./flask_app/app:/root/app
+      - ./app/src:/src
     tty: true
-    ports:
-      - 5901:5901
