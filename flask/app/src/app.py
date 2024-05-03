@@ -1,4 +1,6 @@
 from flask import Flask
+import time
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -10,6 +12,14 @@ def hello():
 def good():
     name = "Good"
     return name
+
+
+@app.route('/sleep1sec')
+def sleep1sec():
+    time.sleep(1)
+    name = "sleep1sec_succes"
+    return name
+
 
 ## おまじない
 if __name__ == "__main__":

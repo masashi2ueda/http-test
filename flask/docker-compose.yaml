@@ -12,3 +12,22 @@ services:
     volumes:
       - ./app/src:/src
     tty: true
+    ports:
+      - 5901:5901
+    command: flask run --host=0.0.0.0 --port=5901
+  user:
+    build:
+      context: "./user"
+      dockerfile: "Dockerfile"
+      args:
+        - UID=1000
+        - GID=1000
+        - USERNAME=user
+        - GROUPNAME=user
+    volumes:
+      - ./user/src:/src
+    tty: true
+    command: python user.py
+networks:
+    flask-network:
+        external: true
