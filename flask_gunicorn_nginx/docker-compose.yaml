@@ -1,8 +1,8 @@
 version: '3'
 services:
-  flask:
+  web:
     build:
-      context: "./app"
+      context: "./web"
       dockerfile: "Dockerfile"
       args:
         - UID=1000
@@ -10,11 +10,19 @@ services:
         - USERNAME=user
         - GROUPNAME=user
     volumes:
-      - ./app/src:/src
+      - ./web/src:/src
     tty: true
-    ports:
-      - 5901:5901
+    expose:
+      - 5901
     command: gunicorn -w 4 -b 0.0.0.0:5901 app:app
+  nginx:
+    build: ./nginx
+    ports:
+      - 8083:8083
+    depends_on:
+      - web
+    networks:
+      - nginx_network
   user:
     build:
       context: "./user"
@@ -27,7 +35,7 @@ services:
     volumes:
       - ./user/src:/src
     tty: true
-    command: python user.py
+    # command: locust -f locustfile.py --headless -u 100 -r 10 --run-time 10s
 networks:
     flask-network:
         external: true

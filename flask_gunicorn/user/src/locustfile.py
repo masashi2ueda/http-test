@@ -26,7 +26,7 @@ class UserBehavior(TaskSet):
 # ユーザークラス
 class WebsiteUser(HttpUser):
     # hostを指定（コマンドラインから実行時に使用）
-    host = "http://flask:5901"
+    host = "http://web:5901"
 
     tasks = [UserBehavior]
 
