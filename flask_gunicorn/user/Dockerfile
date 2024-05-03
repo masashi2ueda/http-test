@@ -10,7 +10,6 @@ RUN groupadd -g ${GID} ${GROUPNAME} -f && \
 RUN apt-get update
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
-RUN pip install flask gunicorn
 
 USER ${USERNAME}
 WORKDIR /src
