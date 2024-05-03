@@ -12,3 +12,5 @@ services:
     volumes:
       - ./app/src:/src
     tty: true
+    ports:
+      - 5901:5901
