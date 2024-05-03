@@ -28,7 +28,7 @@ services:
     volumes:
       - ./user/src:/src
     tty: true
-    # command: python user.py
+    # command: locust -f locustfile.py --headless -u 100 -r 10 --run-time 10s
 networks:
     flask-network:
         external: true
