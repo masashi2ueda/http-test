@@ -34,4 +34,3 @@ services:
       - ./user/src:/src
     tty: true
     command: /home/user/.local/bin/locust -f locustfile.py --headless -u 1000 -r 100 --run-time 10s --csv=output
-
