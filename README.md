@@ -1,4 +1,7 @@
 # http-test
+## 概要
+- flaskのdevelopment serverをそのまま使った場合、gunicornを通した場合、nginxからgunicornを通した場合のそれぞれの動作を確認した
+
 
 ## お勉強
 

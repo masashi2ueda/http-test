@@ -22,3 +22,28 @@
 
 # 参考
 - [【Docker × Flask】Locustでflask製のREST APIに負荷をかけてみる](https://scrawledtechblog.com/docker-flask-locust/)
+
+
+
+
+# 概要
+- flask+gunicornのスペックをチェックする
+
+# 実行
+1. composeを起動
+    ```sh
+    docker compose up
+    ```
+    - webとuserコンテナが立ち上がる
+1. flaskの起動確認→ホストのブラウザでhttp://127.0.0.1:5901/goodにアクセスして、Goodとでればok
+1. userコンテナに入る
+1. flask+gunicornのスペックをuserコンテナの中の以下コマンドで測る
+    ```sh
+    cd /src
+    locust -f locustfile.py --headless -u 1000 -r 100 --run-time 10s --csv=output
+    ```
+    コマンド詳細は[こちら](../flask/README.md)を参照
+1. 結果は/srcの中のcsvを確認(ホストの./user/srcにマウントされているので、そこからでも確認できる)
+
+# 参考
+- [【Docker × Flask】Locustでflask製のREST APIに負荷をかけてみる](https://scrawledtechblog.com/docker-flask-locust/)

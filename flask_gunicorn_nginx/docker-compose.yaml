@@ -33,4 +33,5 @@ services:
     volumes:
       - ./user/src:/src
     tty: true
-    # command: locust -f locustfile.py --headless -u 100 -r 10 --run-time 10s
+    command: /home/user/.local/bin/locust -f locustfile.py --headless -u 1000 -r 100 --run-time 10s --csv=output
+
