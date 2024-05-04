@@ -43,7 +43,9 @@ gunicornやnginxを通すとよいとよく聞くが、何がなんだかわか�
                 - SSL高速化：内部のwebサーバで複合化しなくてよくなり、リバースプロキシで高速に行える
                 - セキュリティ向上：ネットワーク外から内部のサーバのIPなどを隠せる
     - ロードバランサとは？
-        - 
+        - いったんサーバーへのアクセスを集約し、リソースに余裕があるサーバーを接続先として選択する
+        - 事前に決めた順序でリクエストを各サーバーに振り分ける「静的分散」、サーバーの状態をリアルタイムに測定して、リクエストをサーバーに振り分ける「動的分散」の2つがある
+
 
 
 
@@ -54,3 +56,4 @@ gunicornやnginxを通すとよいとよく聞くが、何がなんだかわか�
 - [WSGIの概要](https://gihyo.jp/dev/feature/01/wsgi/0001)
 - [NGINX(エンジンエックス)とは？その特徴やメリットについて徹底解説！！](https://cn.teldevice.co.jp/column/38275/)
 - [リバースプロキシとプロキシの違いとは？それぞれのサーバーの仕組みは？](https://eset-info.canon-its.jp/malware_info/special/detail/201021.html)
+- [ロードバランサー（Load Balancer）とは](https://www.ntt.com/bizon/glossary/j-r/load-balancer.html)
