@@ -18,11 +18,9 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - 8083:8083
+      - 8083:80
     depends_on:
       - web
-    networks:
-      - nginx_network
   user:
     build:
       context: "./user"
@@ -36,6 +34,3 @@ services:
       - ./user/src:/src
     tty: true
     # command: locust -f locustfile.py --headless -u 100 -r 10 --run-time 10s
-networks:
-    flask-network:
-        external: true

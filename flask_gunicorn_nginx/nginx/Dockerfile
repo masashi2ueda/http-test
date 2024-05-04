@@ -1,2 +1,3 @@
 FROM nginx:latest
-COPY default.conf /etc/nginx/conf.d/default.conf
+# nginx.confの設定を反映させる
+COPY nginx.conf /etc/nginx/nginx.conf
